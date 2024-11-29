@@ -303,6 +303,7 @@ a {
   border: var(--_border-width) var(--_border-style) var(--_border-color);
   border-radius: var(--_rounded);
   padding: var(--_padding);
+  outline: none;
   -webkit-transform: var(--_transform);
   -ms-transform: var(--_transform);
   transform: var(--_transform);
@@ -685,6 +686,9 @@ b {
   -ms-flex-direction: column;
   flex-direction: column;
   gap: 0.5rem;
+}
+.header-container .nav__list > *:first-child {
+  display: none;
 }
 .header-container .btn {
   --_color: inherit;
