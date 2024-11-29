@@ -760,7 +760,7 @@ b {
 }
 @media (min-width: 992px) {
   .hero-info-title {
-    font-size: 3.125rem;
+    font-size: 3.75rem;
     margin-bottom: unset;
     position: absolute;
     left: 50%;
