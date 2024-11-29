@@ -2085,7 +2085,9 @@ window.initializeModal = function (element) {
   document.addEventListener('hide.bs.modal', event => {
     const iframe = event.target.querySelector('iframe');
     if (iframe) {
-      iframe.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      const iframeSrc = iframe.src;
+      iframe.src = '';
+      iframe.src = iframeSrc;
     }
   });
 };
