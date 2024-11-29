@@ -10,6 +10,8 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
+/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
+
 
 
 /***/ }),
@@ -73,6 +75,27 @@ navButtons?.forEach((button, index) => {
       mainSwiper.slideTo(index);
       updateActiveNavButton(index);
     }
+  });
+});
+
+/***/ }),
+
+/***/ "./src/js/components/text-collapse.js":
+/*!********************************************!*\
+  !*** ./src/js/components/text-collapse.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+const buttons = document.querySelectorAll('[data-button-collapse]');
+buttons.forEach(button => {
+  button.addEventListener('click', () => {
+    const targetId = button.getAttribute('data-button-collapse');
+    const textElement = document.querySelector(`[data-text-collapse="${targetId}"]`);
+    if (!textElement) return;
+    const isExpanded = textElement.getAttribute('data-expanded') === 'true';
+    textElement.setAttribute('data-expanded', !isExpanded);
+    button.textContent = isExpanded ? 'Learn more' : 'Show less';
   });
 });
 
