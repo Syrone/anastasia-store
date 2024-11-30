@@ -2009,12 +2009,13 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
-/* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
-/* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
-/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
-/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
-/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
-/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+/* harmony import */ var _components_filter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/filter.js */ "./src/js/components/filter.js");
+/* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
+/* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
+/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
+/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
+/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
+/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
 
 
 
@@ -2022,6 +2023,49 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+/***/ }),
+
+/***/ "./src/js/components/filter.js":
+/*!*************************************!*\
+  !*** ./src/js/components/filter.js ***!
+  \*************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+document.querySelectorAll('.swiper-filter').forEach(filter => {
+  const radioInputs = filter.querySelectorAll('input[type="radio"]');
+  const swiperContainer = filter.closest('.swiper-container');
+  const swiperElement = swiperContainer.querySelector('.swiper');
+  const applyFilter = () => {
+    const selectedFilterValue = filter.querySelector('input[type="radio"]:checked')?.id;
+    const slides = swiperElement.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => {
+      const filterElement = slide.querySelector('.events-card[data-swiper-filter]');
+      const slideFilterValue = filterElement?.getAttribute('data-swiper-filter');
+      if (slideFilterValue === selectedFilterValue) {
+        slide.classList.remove('is-hidden');
+        setTimeout(() => {
+          filterElement.classList.remove('is-invisible');
+        }, 10);
+      } else {
+        filterElement.classList.add('is-invisible');
+        setTimeout(() => {
+          slide.classList.add('is-hidden');
+        }, 300);
+      }
+    });
+    setTimeout(() => {
+      swiperElement.swiper ? swiperElement.swiper.update() : null;
+    }, 300);
+  };
+  radioInputs.forEach(radio => {
+    radio.addEventListener('change', applyFilter);
+  });
+  applyFilter();
+});
 
 /***/ }),
 
@@ -2071,17 +2115,47 @@ window.initializeModal = function (element) {
   modalInstances.set(element, modal);
   document.addEventListener('show.bs.modal', event => {
     const modalBody = event.target.querySelector('.modal-body');
-    const iframeContainer = modalBody.querySelector('[data-iframe-youtube]');
-    const videoUrl = iframeContainer.getAttribute('data-iframe-youtube');
-    if (!modalBody.querySelector('iframe')) {
-      const iframe = document.createElement('iframe');
-      iframe.src = videoUrl;
-      iframe.width = '100%';
-      iframe.height = '100%';
-      iframe.frameBorder = '0';
-      iframe.allow = 'accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture';
-      iframe.allowFullscreen = true;
-      iframeContainer.appendChild(iframe);
+    if (!modalBody) return;
+
+    // Обработка YouTube iframe
+    const iframeYoutubeContainer = modalBody.querySelector('[data-iframe-youtube]');
+    if (iframeYoutubeContainer) {
+      const videoUrl = event.relatedTarget.getAttribute('data-youtube-path');
+      if (videoUrl) {
+        const existingIframe = modalBody.querySelector('iframe');
+        if (existingIframe) {
+          existingIframe.remove();
+        }
+        const iframe = document.createElement('iframe');
+        iframe.src = videoUrl;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.frameBorder = '0';
+        iframe.allow = 'accelerometer autoplay clipboard-write encrypted-media gyroscope picture-in-picture';
+        iframe.allowFullscreen = true;
+        iframeYoutubeContainer.appendChild(iframe);
+      }
+    }
+
+    // Обработка картинок
+    const pictureContainer = modalBody.querySelector('[data-iframe-picture]');
+    if (pictureContainer) {
+      const picturePath = event.relatedTarget.getAttribute('data-picture-path');
+      if (picturePath) {
+        pictureContainer.innerHTML = '';
+        const picture = document.createElement('picture');
+        const sourceWebp = document.createElement('source');
+        sourceWebp.srcset = picturePath;
+        sourceWebp.type = 'image/webp';
+        const img = document.createElement('img');
+        img.src = picturePath.replace('.webp', '.jpg');
+        img.classList.add('image');
+        img.loading = 'lazy';
+        img.alt = 'Modal Image';
+        picture.appendChild(sourceWebp);
+        picture.appendChild(img);
+        pictureContainer.appendChild(picture);
+      }
     }
   });
   document.addEventListener('hide.bs.modal', event => {
@@ -2177,7 +2251,7 @@ if (mainSwiperElement) {
   updateHeaderClass(mainSwiper.activeIndex);
 }
 function updateHeaderClass(activeIndex) {
-  const activeSlide = mainSwiperElement.querySelector(`.swiper-slide:nth-child(${activeIndex + 1})`);
+  const activeSlide = mainSwiperElement.querySelector(`.main-swiper-wrapper > .swiper-slide:nth-child(${activeIndex + 1})`);
   const classesToRemove = Array.from(headerElement?.classList || []).filter(className => className.startsWith('color-'));
   classesToRemove.forEach(className => headerElement?.classList.remove(className));
   const transferClasses = activeSlide?.getAttribute('data-transfer-classes');
@@ -2200,6 +2274,76 @@ navButtons?.forEach((button, index) => {
     if (mainSwiper) {
       mainSwiper.slideTo(index);
       updateActiveNavButton(index);
+    }
+  });
+});
+document.querySelectorAll('.cards-swiper')?.forEach(element => {
+  const swiper = element.querySelector('.swiper');
+  const slidePrev = element.querySelector('.swiper-button-prev');
+  const slideNext = element.querySelector('.swiper-button-next');
+  new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiper, {
+    modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
+    slidesPerView: 4,
+    spaceBetween: 24,
+    simulateTouch: true,
+    nested: true,
+    watchSlidesProgress: true,
+    navigation: {
+      nextEl: slideNext,
+      prevEl: slidePrev
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 24
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 24
+      },
+      992: {
+        slidesPerView: 3,
+        spaceBetween: 24
+      },
+      1200: {
+        slidesPerView: 4,
+        spaceBetween: 24
+      }
+    }
+  });
+});
+document.querySelectorAll('.photos-swiper')?.forEach(element => {
+  const swiper = element.querySelector('.swiper');
+  const slidePrev = element.querySelector('.swiper-button-prev');
+  const slideNext = element.querySelector('.swiper-button-next');
+  new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](swiper, {
+    modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Navigation],
+    slidesPerView: 7,
+    spaceBetween: 32,
+    simulateTouch: true,
+    nested: true,
+    watchSlidesProgress: true,
+    navigation: {
+      nextEl: slideNext,
+      prevEl: slidePrev
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 2,
+        spaceBetween: 24
+      },
+      576: {
+        slidesPerView: 3,
+        spaceBetween: 24
+      },
+      992: {
+        slidesPerView: 4,
+        spaceBetween: 24
+      },
+      1200: {
+        slidesPerView: 7,
+        spaceBetween: 32
+      }
     }
   });
 });
