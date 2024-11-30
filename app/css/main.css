@@ -352,7 +352,7 @@ a {
 
 .btn-light {
   --_color: var(--gray);
-  --_bg: var(--gray-200);
+  --_bg: rgba(var(--gray-200-rgb), .8);
   --_color-hover: var(--gray-200);
   --_bg-hover: var(--gray-800);
   --_color-active: var(--gray);
@@ -1419,4 +1419,4 @@ b {
     width: 50%;
     margin-left: auto;
   }
-}
+}/*# sourceMappingURL=main.css.map */

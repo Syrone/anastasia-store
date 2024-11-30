@@ -2012,8 +2012,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
 /* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
 /* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
-/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
-/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
+/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
+/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+
 
 
 
@@ -2170,6 +2172,7 @@ if (mainSwiperElement) {
       }
     }
   });
+  window.mainSwiper = mainSwiper;
   updateActiveNavButton(mainSwiper.activeIndex);
   updateHeaderClass(mainSwiper.activeIndex);
 }
@@ -2199,6 +2202,58 @@ navButtons?.forEach((button, index) => {
       updateActiveNavButton(index);
     }
   });
+});
+
+/***/ }),
+
+/***/ "./src/js/components/text-animation.js":
+/*!*********************************************!*\
+  !*** ./src/js/components/text-animation.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+const elements = document.querySelectorAll('[data-text-animation]');
+elements.forEach(element => {
+  const text = element.textContent.trim();
+  element.textContent = '';
+  const activeCount = 3;
+  const animationSpeed = 100;
+  const letters = text.split('').map(char => {
+    const span = document.createElement('span');
+    span.textContent = char === ' ' ? '\u00A0' : char;
+    span.style.display = 'inline-block';
+    span.style.transition = 'color 0.3s';
+    span.style.color = 'inherit';
+    return span;
+  });
+  letters.forEach(span => element.appendChild(span));
+  let currentIndex = 0;
+  let animationIntervalId = null;
+  function animate() {
+    letters.forEach((span, index) => {
+      const distance = Math.abs(index - currentIndex);
+      span.style.color = distance < activeCount ? 'rgb(230, 230, 230)' : 'inherit';
+    });
+    currentIndex = (currentIndex + 1) % letters.length;
+  }
+  function startAnimation() {
+    if (animationIntervalId) {
+      clearInterval(animationIntervalId);
+    }
+    animationIntervalId = setInterval(animate, animationSpeed);
+  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        startAnimation();
+      } else {
+        clearInterval(animationIntervalId);
+      }
+    });
+  });
+  observer.observe(element);
 });
 
 /***/ }),
@@ -17287,3 +17342,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /******/ })()
 ;
+//# sourceMappingURL=main.js.map
