@@ -1934,7 +1934,7 @@ b {
   --_ls: normal;
   --_bg: var(--gray-200);
   --_rounded: var(--rounded);
-  --_padding: 2.5rem;
+  --_padding: 2.25rem;
   --_bg-hover: var(--gray);
   --_bg-active: var(--gray);
   --_icon-size: 2.25rem;
@@ -1959,7 +1959,8 @@ b {
 }
 @media (min-width: 992px) {
   .events-card {
-    height: 15.625rem;
+    --_padding: 2.5rem;
+    min-height: 15.625rem;
   }
 }
 .events-card-title {
@@ -1982,4 +1983,13 @@ b {
   -ms-flex-pack: end;
   justify-content: flex-end;
   margin-top: 1.5rem;
+}
+
+.press .cards-swiper {
+  margin-bottom: 2.5rem;
+}
+@media (min-width: 992px) {
+  .press .cards-swiper {
+    margin-bottom: 2.875rem;
+  }
 }/*# sourceMappingURL=main.css.map */
