@@ -2008,14 +2008,16 @@
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
-/* harmony import */ var _components_filter_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/filter.js */ "./src/js/components/filter.js");
-/* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
-/* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
-/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
-/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
-/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
-/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+/* harmony import */ var _components_header_height_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/header-height.js */ "./src/js/components/header-height.js");
+/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
+/* harmony import */ var _components_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/filter.js */ "./src/js/components/filter.js");
+/* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
+/* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
+/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
+/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
+/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
+/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+
 
 
 
@@ -2043,9 +2045,10 @@ document.querySelectorAll('.swiper-filter').forEach(filter => {
     const selectedFilterValue = filter.querySelector('input[type="radio"]:checked')?.id;
     const slides = swiperElement.querySelectorAll('.swiper-slide');
     slides.forEach(slide => {
-      const filterElement = slide.querySelector('.events-card[data-swiper-filter]');
+      const filterElement = slide.querySelector('[data-swiper-filter]');
       const slideFilterValue = filterElement?.getAttribute('data-swiper-filter');
-      if (slideFilterValue === selectedFilterValue) {
+      const filterValues = slideFilterValue ? slideFilterValue.split(' ') : [];
+      if (filterValues.includes(selectedFilterValue)) {
         slide.classList.remove('is-hidden');
         setTimeout(() => {
           filterElement.classList.remove('is-invisible');
@@ -2066,6 +2069,30 @@ document.querySelectorAll('.swiper-filter').forEach(filter => {
   });
   applyFilter();
 });
+
+/***/ }),
+
+/***/ "./src/js/components/header-height.js":
+/*!********************************************!*\
+  !*** ./src/js/components/header-height.js ***!
+  \********************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _functions_header_height_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/header-height.js */ "./src/js/functions/header-height.js");
+/* harmony import */ var _functions_throttle_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../functions/throttle.js */ "./src/js/functions/throttle.js");
+
+
+const header = document.querySelector('.header');
+if (header) {
+  window.addEventListener('load', (0,_functions_header_height_js__WEBPACK_IMPORTED_MODULE_0__.getHeaderHeight)());
+  window.addEventListener('resize', (0,_functions_throttle_js__WEBPACK_IMPORTED_MODULE_1__.throttle)(_functions_header_height_js__WEBPACK_IMPORTED_MODULE_0__.getHeaderHeight));
+  const resizeObserver = new ResizeObserver(() => {
+    (0,_functions_header_height_js__WEBPACK_IMPORTED_MODULE_0__.getHeaderHeight)();
+  });
+  resizeObserver.observe(header);
+}
 
 /***/ }),
 
@@ -2226,6 +2253,26 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var swiper_modules__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! swiper/modules */ "./node_modules/swiper/modules/index.mjs");
 
 
+const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
+  let swiper;
+  breakpoint = window.matchMedia(breakpoint);
+  const enableSwiper = function (className, settings) {
+    swiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](className, settings);
+    if (callback) {
+      callback(swiper);
+    }
+  };
+  const checker = function () {
+    if (breakpoint.matches) {
+      return enableSwiper(swiperClass, swiperSettings);
+    } else {
+      if (swiper !== undefined) swiper.destroy(true, true);
+      return;
+    }
+  };
+  breakpoint.addEventListener('change', checker);
+  checker();
+};
 const headerElement = document.querySelector('.header');
 const mainSwiperElement = document.querySelector('.main-swiper');
 const navButtons = document.querySelectorAll('.main-swiper-nav .nav__link');
@@ -2252,7 +2299,7 @@ if (mainSwiperElement) {
 }
 function updateHeaderClass(activeIndex) {
   const activeSlide = mainSwiperElement.querySelector(`.main-swiper-wrapper > .swiper-slide:nth-child(${activeIndex + 1})`);
-  const classesToRemove = Array.from(headerElement?.classList || []).filter(className => className.startsWith('color-'));
+  const classesToRemove = Array.from(headerElement?.classList || []).filter(className => className.startsWith('color-') || className.startsWith('header--'));
   classesToRemove.forEach(className => headerElement?.classList.remove(className));
   const transferClasses = activeSlide?.getAttribute('data-transfer-classes');
   if (transferClasses) {
@@ -2347,6 +2394,34 @@ document.querySelectorAll('.photos-swiper')?.forEach(element => {
     }
   });
 });
+document.querySelectorAll('.shop-swiper')?.forEach(element => {
+  const swiper = element.querySelector('.swiper');
+  resizableSwiper('(min-width: 992px)', swiper, {
+    slidesPerView: 4,
+    spaceBetween: 12,
+    simulateTouch: true,
+    nested: true,
+    watchSlidesProgress: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 12
+      },
+      992: {
+        slidesPerView: 2,
+        spaceBetween: 12
+      },
+      1200: {
+        slidesPerView: 3,
+        spaceBetween: 12
+      },
+      1400: {
+        slidesPerView: 4,
+        spaceBetween: 12
+      }
+    }
+  });
+});
 
 /***/ }),
 
@@ -2435,6 +2510,63 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _functions_transfer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../functions/transfer.js */ "./src/js/functions/transfer.js");
 
 new _functions_transfer_js__WEBPACK_IMPORTED_MODULE_0__["default"]();
+
+/***/ }),
+
+/***/ "./src/js/functions/header-height.js":
+/*!*******************************************!*\
+  !*** ./src/js/functions/header-height.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   getHeaderHeight: () => (/* binding */ getHeaderHeight)
+/* harmony export */ });
+const getHeaderHeight = () => {
+  const headerHeight = document?.querySelector('.header').offsetHeight;
+  document.querySelector(':root').style.setProperty('--header-height', `${headerHeight}px`);
+};
+
+/***/ }),
+
+/***/ "./src/js/functions/throttle.js":
+/*!**************************************!*\
+  !*** ./src/js/functions/throttle.js ***!
+  \**************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   throttle: () => (/* binding */ throttle)
+/* harmony export */ });
+const throttle = function (func) {
+  let delay = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 250;
+  let isThrottled = false;
+  let savedArgs = null;
+  let savedThis = null;
+  return function wrap() {
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+    if (isThrottled) {
+      savedArgs = args, savedThis = this;
+      return;
+    }
+    func.apply(this, args);
+    isThrottled = true;
+    setTimeout(() => {
+      isThrottled = false;
+      if (savedThis) {
+        wrap.apply(savedThis, savedArgs);
+        savedThis = null;
+        savedArgs = null;
+      }
+    }, delay);
+  };
+};
 
 /***/ }),
 
