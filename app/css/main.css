@@ -1667,9 +1667,11 @@ b {
   -webkit-transition-timing-function: var(--transition-timing-function);
   transition-timing-function: var(--transition-timing-function);
 }
-.header--shop {
-  pointer-events: auto;
-  background-color: var(--body-bg);
+@media (max-wdith: 992px) {
+  .header--shop {
+    pointer-events: auto;
+    background-color: var(--body-bg);
+  }
 }
 .header-container {
   display: -webkit-box;
@@ -1905,8 +1907,8 @@ b {
   background-color: var(--gray-300);
   -webkit-box-shadow: var(--shadow);
   box-shadow: var(--shadow);
-  -o-object-fit: cover;
-  object-fit: cover;
+  -o-object-fit: none;
+  object-fit: none;
   -webkit-filter: saturate(0%);
   filter: saturate(0%);
   -webkit-transition-property: -webkit-filter;
@@ -2046,7 +2048,7 @@ b {
 }
 @media (min-width: 992px) {
   .shop .section-header {
-    margin-top: 5rem;
+    margin-block: 5rem 2rem;
   }
 }
 @media (min-width: 1200px) {
@@ -2075,7 +2077,7 @@ b {
 }
 @media (min-width: 1400px) {
   .shop .section-subtitle {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
   }
 }
 .shop .swiper-filter {
@@ -2096,13 +2098,14 @@ b {
   }
 }
 .shop .swiper-filter .btn-check + .btn {
+  --_fs: .75rem;
   --_color: var(--gray-400);
   --_color-hover: var(--gray-400);
   --_color-active: var(--gray-400);
 }
-@media (max-width: 992px) {
+@media (min-width: 992px) {
   .shop .swiper-filter .btn-check + .btn {
-    --_fs: .75rem;
+    --_fs: 1rem;
   }
 }
 .shop .swiper-filter .btn-check:checked + .btn {
@@ -2116,7 +2119,7 @@ b {
 }
 @media (min-width: 992px) {
   .shop .swiper-filter + .swiper {
-    margin-top: 5rem;
+    margin-top: 4rem;
   }
 }
 .shop-swiper {

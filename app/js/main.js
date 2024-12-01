@@ -2009,14 +2009,16 @@
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _components_header_height_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/header-height.js */ "./src/js/components/header-height.js");
-/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
-/* harmony import */ var _components_filter_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/filter.js */ "./src/js/components/filter.js");
-/* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
-/* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
-/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
-/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
-/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
-/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+/* harmony import */ var _components_load_preview_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/load-preview.js */ "./src/js/components/load-preview.js");
+/* harmony import */ var _components_swiper_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/swiper.js */ "./src/js/components/swiper.js");
+/* harmony import */ var _components_filter_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/filter.js */ "./src/js/components/filter.js");
+/* harmony import */ var _components_transfer_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/transfer.js */ "./src/js/components/transfer.js");
+/* harmony import */ var _components_imask_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/imask.js */ "./src/js/components/imask.js");
+/* harmony import */ var _components_text_collapse_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/text-collapse.js */ "./src/js/components/text-collapse.js");
+/* harmony import */ var _components_text_animation_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/text-animation.js */ "./src/js/components/text-animation.js");
+/* harmony import */ var _components_offcanvas_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/offcanvas.js */ "./src/js/components/offcanvas.js");
+/* harmony import */ var _components_modal_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./components/modal.js */ "./src/js/components/modal.js");
+
 
 
 
@@ -2123,6 +2125,32 @@ phoneElements?.forEach(element => {
     });
   });
 });
+
+/***/ }),
+
+/***/ "./src/js/components/load-preview.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/load-preview.js ***!
+  \*******************************************/
+/***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+function loadYoutubePreviews() {
+  document.querySelectorAll('[data-youtube-path]').forEach(button => {
+    const youtubePath = button.getAttribute('data-youtube-path');
+    const imgElement = button.querySelector('[data-youtube-preview]');
+    if (!youtubePath || !imgElement) return;
+    const videoIdMatch = youtubePath.match(/(?:youtube\.com\/(?:embed|watch)\?v=|youtu\.be\/|\/vi\/|\/embed\/)([^&?/]+)/);
+    const videoId = videoIdMatch ? videoIdMatch[1] : null;
+    console.log(videoId);
+    if (videoId) {
+      const previewUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      imgElement.src = previewUrl;
+    }
+  });
+}
+loadYoutubePreviews();
 
 /***/ }),
 
