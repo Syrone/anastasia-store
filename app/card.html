@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#111111">
+  <title>Store</title>
+  <link rel="preload" href="fonts/GillSans-Light.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/GillSans-LightItalic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="fonts/GillSans-SemiBold.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/vendor.css">
+  <link rel="stylesheet" href="css/main.css">
+  <script defer src="js/main.js"></script>
+</head>
+
+<body class="page__body">
+  <h1 class="visually-hidden">
+    Page title
+</h1>
+  <div class="site-container">
+    <header class="header header--card">
+  <div class="container header-container">
+    <div class="header-top">
+      <div class="header-top-main">
+        <div class="logo">
+          shop
+        </div>
+
+        <div class="header-buttons">
+          <a href="cart.html" class="btn btn-cart">
+            <span class="icon">
+              <svg>
+                <use xlink:href="img/icons/cart.svg#svg-cart"></use>
+              </svg>
+            </span>
+          </a>
+
+          <button type="button" class="btn burger"
+            data-bs-toggle="offcanvas" data-bs-target="#offcanvas-navigation" aria-controls="offcanvasNavigation">
+            home
+
+            <span class="icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-back">
+        come back
+      </button>
+    </div>
+
+    <nav class="nav header-nav main-swiper-nav" title="header nav"
+      data-transfer-origin="header-navigation" data-transfer-breakpoint="992" data-transfer-placement="first">
+      <ul class="list-reset nav__list">
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            home
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            about
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            projects
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            modeling
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            credits
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            events
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            press
+          </button>
+        </li>
+        <li class="nav__item">
+          <button type="button" class="btn nav__link"
+            data-bs-dismiss="offcanvas">
+            merch
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+    <main class="main">
+      <div class="product">
+        <div class="product-start">
+          <div class="swiper product-swiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="img/shop/shop-1.webp" type="image/webp">
+                  <img loading="lazy" src="img/shop/shop-1.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="img/shop/shop-2.webp" type="image/webp">
+                  <img loading="lazy" src="img/shop/shop-2.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="img/shop/shop-1.webp" type="image/webp">
+                  <img loading="lazy" src="img/shop/shop-1.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
+                </picture>
+              </div>
+              <div class="swiper-slide">
+                <picture>
+                  <source srcset="img/shop/shop-2.webp" type="image/webp">
+                  <img loading="lazy" src="img/shop/shop-2.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
+                </picture>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="product-end">
+          <div class="product-info">
+            <div class="product-info-inner">
+              <div class="product-header">
+                <h2 class="product-title">
+                  Leggings
+                </h2>
+                <p class="product-price">
+                  $100 <span class="product-price-sale">$120</span>
+                </p>
+              </div>
+
+              <form class="product-main">
+                <div class="product-sizes">
+                  <input type="radio" class="btn-check" name="product-size" id="product-size-s" autocomplete="off" required>
+                  <label class="btn btn-inline" for="product-size-s">
+                    S
+                  </label>
+
+                  |
+
+                  <input type="radio" class="btn-check" name="product-size" id="product-size-m" autocomplete="off" required>
+                  <label class="btn btn-inline" for="product-size-m">
+                    M
+                  </label>
+
+                  |
+
+                  <input type="radio" class="btn-check" name="product-size" id="product-size-l" autocomplete="off" required>
+                  <label class="btn btn-inline" for="product-size-l">
+                    L
+                  </label>
+
+                  |
+
+                  <input type="radio" class="btn-check" name="product-size" id="product-size-xl" autocomplete="off" required>
+                  <label class="btn btn-inline" for="product-size-xl">
+                    XL
+                  </label>
+
+                  |
+
+                  <input type="radio" class="btn-check" name="product-size" id="product-size-2xl" autocomplete="off" required>
+                  <label class="btn btn-inline" for="product-size-2xl">
+                    2XL
+                  </label>
+                </div>
+
+                <div class="product-colors">
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-1" autocomplete="off" required>
+                  <label class="btn" for="product-color-1">
+                    <span class="product-color" style="--_color: black;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-2" autocomplete="off" required>
+                  <label class="btn" for="product-color-2">
+                    <span class="product-color" style="--_color: gray;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-3" autocomplete="off" required>
+                  <label class="btn" for="product-color-3">
+                    <span class="product-color" style="--_color: white;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-4" autocomplete="off" required>
+                  <label class="btn" for="product-color-4">
+                    <span class="product-color" style="--_color: orchid;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-5" autocomplete="off" required>
+                  <label class="btn" for="product-color-5">
+                    <span class="product-color" style="--_color: aqua;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-6" autocomplete="off" required>
+                  <label class="btn" for="product-color-6">
+                    <span class="product-color" style="--_color: blue;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-7" autocomplete="off" required>
+                  <label class="btn" for="product-color-7">
+                    <span class="product-color" style="--_color: green;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-8" autocomplete="off" required>
+                  <label class="btn" for="product-color-8">
+                    <span class="product-color" style="--_color: yellow;"></span>
+                  </label>
+
+                  <input type="radio" class="btn-check" name="product-color" id="product-color-9" autocomplete="off" required>
+                  <label class="btn" for="product-color-9">
+                    <span class="product-color" style="--_color: red;"></span>
+                  </label>
+                </div>
+
+                <div class="product-buttons">
+                  <button type="button" class="btn btn-base btn-secondary btn-submit">
+                    add to cart
+                  </button>
+                </div>
+              </form>
+
+              <div class="product-footer">
+                <div class="accordion accordion-flush" id="accordion-product">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-product-one" aria-expanded="false" aria-controls="accordion-product-one">
+                        Description
+                      </button>
+                    </h2>
+                    <div id="accordion-product-one" class="accordion-collapse collapse" data-bs-parent="#accordion-product">
+                      <div class="accordion-body">
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat laudantium nisi vitae sint voluptate dolorum nostrum atque, quo quibusdam magnam ullam quasi rerum recusandae cupiditate modi consequuntur accusamus cum incidunt.
+                        </p>
+                        <p>
+                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat laudantium nisi vitae sint voluptate dolorum nostrum atque, quo quibusdam magnam ullam quasi rerum recusandae cupiditate modi consequuntur accusamus cum incidunt.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-product-two" aria-expanded="false" aria-controls="accordion-product-two">
+                        Composition and care
+                      </button>
+                    </h2>
+                    <div id="accordion-product-two" class="accordion-collapse collapse" data-bs-parent="#accordion-product">
+                      <div class="accordion-body">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, sunt. Optio at recusandae, natus cumque aliquid, laborum itaque ullam eum perferendis saepe omnis earum? Maxime optio sapiente harum magni laudantium.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header">
+                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-product-three" aria-expanded="false" aria-controls="accordion-product-three">
+                        Shipping and Payment
+                      </button>
+                    </h2>
+                    <div id="accordion-product-three" class="accordion-collapse collapse" data-bs-parent="#accordion-product">
+                      <div class="accordion-body">
+                        <p>
+                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, sunt. Optio at recusandae, natus cumque aliquid, laborum itaque ullam eum perferendis saepe omnis earum? Maxime optio sapiente harum magni laudantium.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-contacts" aria-labelledby="offcanvas-contacts-label">
+    <div class="offcanvas-header">
+        <button type="button" class="btn btn-close"
+			data-bs-dismiss="offcanvas" aria-label="Close">
+            <span class="icon">
+                <svg>
+                    <use xlink:href="img/icons/close.svg#svg-close"></use>
+                </svg>
+            </span>
+        </button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="contacts"
+			data-transfer-origin="contacts-transfer" data-transfer-breakpoint="992">
+            <ul class="list-reset social" title="Our socials">
+                <li class="social__item">
+                    <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
+                        <span class="icon">
+                            <svg>
+                                <use xlink:href="img/icons/facebook.svg#svg-facebook"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="social__item">
+                    <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
+                        <span class="icon">
+                            <svg>
+                                <use xlink:href="img/icons/instagram.svg#svg-instagram"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="social__item">
+                    <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
+                        <span class="icon">
+                            <svg>
+                                <use xlink:href="img/icons/tiktok.svg#svg-tiktok"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="social__item">
+                    <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
+                        <span class="icon">
+                            <svg>
+                                <use xlink:href="img/icons/youtube.svg#svg-youtube"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="social__item">
+                    <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
+                        <span class="icon">
+                            <svg>
+                                <use xlink:href="img/icons/in.svg#svg-in"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+                <li class="social__item">
+                    <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
+                        <span class="icon">
+                            <svg>
+                                <use xlink:href="img/icons/telegram.svg#svg-telegram"></use>
+                            </svg>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+
+            <form>
+                <div class="field-control">
+                    <p class="required">* Required fields</p>
+                    <div class="fieldset">
+                        <input type="text" class="field" name="first-name" placeholder="Enter your first name *" required>
+                    </div>
+                </div>
+                <div class="field-control">
+                    <div class="fieldset">
+                        <input type="text" class="field" name="last-name" placeholder="Enter your first name *" required>
+                    </div>
+                </div>
+                <div class="field-control">
+                    <div class="fieldset">
+                        <input type="email" class="field" name="email" placeholder="Enter your email *" required>
+                    </div>
+                </div>
+                <div class="field-control">
+                    <div class="fieldset">
+                        <input type="tel" class="field" name="phone" placeholder="Enter your phone number *" required>
+                    </div>
+                </div>
+                <div class="field-control">
+                    <div class="fieldset">
+                        <textarea name="massage" class="field" placeholder="Massage *"></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-lg btn-light btn-submit">
+                    submit
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="offcanvas offcanvas-navigation offcanvas-end" tabindex="-1" id="offcanvas-navigation" aria-labelledby="offcanvas-navigation-label">
+    <div class="offcanvas-header">
+        <button type="button" class="btn burger is-active"
+			data-bs-dismiss="offcanvas" aria-label="Close">
+            home
+
+            <span class="icon"></span>
+        </button>
+    </div>
+    <div class="offcanvas-body"
+		data-transfer-target="contacts-transfer header-navigation">
+        <nav class="nav header-nav contacts-nav" title="header nav">
+      <ul class="list-reset nav__list">
+        <li class="nav__item">
+          <a href="#" class="btn nav__link">
+            contacts
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="btn nav__link">
+            privacy policy
+          </a>
+        </li>
+        <li class="nav__item">
+          <a href="#" class="btn nav__link">
+            terms of use
+          </a>
+        </li>
+      </ul>
+    </nav>
+    </div>
+</div>
+    <div class="modal modal-video fade" id="modal-video" tabindex="-1" aria-hidden="true">
+    <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <span class="icon">
+            <svg>
+                <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div data-iframe-youtube=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal modal-picture fade" id="modal-picture" tabindex="-1" aria-hidden="true">
+    <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <span class="icon">
+            <svg>
+                <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div data-iframe-picture=""></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-events" tabindex="-1" aria-hidden="true">
+    <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <span class="icon">
+            <svg>
+                <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-body-article">
+                    <div class="modal-body-article-start">
+                        <h2 class="modal-body-article-title">
+                            Dance class at EQX.
+                        </h2>
+
+                        <p>
+                            By checking thix box, you agree to receive recurring automated promotional and personalized marketing text messages (e.g. promotions or cart reminders) from Equinox at the cell number used when signing up.
+                        </p>
+                    </div>
+
+                    <picture class="modal-body-article-end">
+                        <source srcset="img/events-popup-bg.webp" type="image/webp">
+                        <img loading="lazy" src="img/events-popup-bg.jpg" class="modal-body-article-image" width="" height="" alt="Modal images">
+                    </picture>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modal-tuned" tabindex="-1" aria-hidden="true">
+    <button type="button" class="btn btn-close" data-bs-dismiss="modal" aria-label="Close">
+        <span class="icon">
+            <svg>
+                <use xlink:href="img/icons/close.svg#svg-close"></use>
+            </svg>
+        </span>
+    </button>
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <form class="modal-body-form">
+                    <h2 class="modal-body-form-title">
+                        Stay tuned
+                    </h2>
+
+                    <div class="field-control">
+                        <div class="fieldset">
+                            <input type="email" class="field" name="email" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-lg btn-secondary btn-submit">
+                        submit
+                    </button>
+
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" name="terms-of-use" required>
+                            <span>I agree to the <a href="#" class="btn btn-inherit text-underline">terms of use</a></span>
+                        </label>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+    <footer class="footer">
+  <div class="container"></div>
+</footer>
+
+  </div>
+</body>
+
+</html>
