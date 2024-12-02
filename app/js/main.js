@@ -2639,9 +2639,12 @@ const headerElement = document.querySelector('.header');
 const mainSwiperElement = document.querySelector('.main-swiper');
 const navButtons = document.querySelectorAll('.main-swiper-nav .nav__link');
 let mainSwiper;
+const urlParams = new URLSearchParams(window.location.search);
+const initialSlide = parseInt(urlParams.get('slide'), 10) || 0;
 if (mainSwiperElement) {
   mainSwiper = new swiper__WEBPACK_IMPORTED_MODULE_0__["default"](mainSwiperElement, {
     modules: [swiper_modules__WEBPACK_IMPORTED_MODULE_1__.Mousewheel],
+    initialSlide: initialSlide,
     slidesPerView: 'auto',
     simulateTouch: false,
     mousewheel: {
@@ -2649,15 +2652,21 @@ if (mainSwiperElement) {
     },
     speed: 600,
     on: {
+      init: () => {
+        setTimeout(() => {
+          updateActiveNavButton(mainSwiper.activeIndex);
+          updateHeaderClass(mainSwiper.activeIndex);
+        });
+      },
       slideChange: () => {
-        updateActiveNavButton(mainSwiper.activeIndex);
-        updateHeaderClass(mainSwiper.activeIndex);
+        setTimeout(() => {
+          updateActiveNavButton(mainSwiper.activeIndex);
+          updateHeaderClass(mainSwiper.activeIndex);
+        });
       }
     }
   });
   window.mainSwiper = mainSwiper;
-  updateActiveNavButton(mainSwiper.activeIndex);
-  updateHeaderClass(mainSwiper.activeIndex);
 }
 function updateHeaderClass(activeIndex) {
   const activeSlide = mainSwiperElement.querySelector(`.main-swiper-wrapper > .swiper-slide:nth-child(${activeIndex + 1})`);

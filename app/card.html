@@ -56,52 +56,44 @@
       data-transfer-origin="header-navigation" data-transfer-breakpoint="992" data-transfer-placement="first">
       <ul class="list-reset nav__list">
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=0" class="btn nav__link">
             home
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=1" class="btn nav__link">
             about
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=2" class="btn nav__link">
             projects
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=3" class="btn nav__link">
             modeling
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=4" class="btn nav__link">
             credits
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=5" class="btn nav__link">
             events
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=6" class="btn nav__link">
             press
-          </button>
+          </a>
         </li>
         <li class="nav__item">
-          <button type="button" class="btn nav__link"
-            data-bs-dismiss="offcanvas">
+          <a href="index.html?slide=7" class="btn nav__link">
             merch
-          </button>
+          </a>
         </li>
       </ul>
     </nav>
@@ -318,8 +310,7 @@
     </main>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-contacts" aria-labelledby="offcanvas-contacts-label">
     <div class="offcanvas-header">
-        <button type="button" class="btn btn-close"
-			data-bs-dismiss="offcanvas" aria-label="Close">
+        <button type="button" class="btn btn-close" data-bs-dismiss="offcanvas" aria-label="Close">
             <span class="icon">
                 <svg>
                     <use xlink:href="img/icons/close.svg#svg-close"></use>
@@ -328,8 +319,7 @@
         </button>
     </div>
     <div class="offcanvas-body">
-        <div class="contacts"
-			data-transfer-origin="contacts-transfer" data-transfer-breakpoint="992">
+        <div class="contacts" data-transfer-origin="contacts-transfer" data-transfer-breakpoint="992">
             <ul class="list-reset social" title="Our socials">
                 <li class="social__item">
                     <a href="#" target="_blank" class="btn btn-icon social__link" aria-label="Facebook">
@@ -423,36 +413,36 @@
     </div>
 </div>
 
-<div class="offcanvas offcanvas-navigation offcanvas-end" tabindex="-1" id="offcanvas-navigation" aria-labelledby="offcanvas-navigation-label">
+<div class="offcanvas offcanvas-navigation offcanvas-end" tabindex="-1" id="offcanvas-navigation"
+	aria-labelledby="offcanvas-navigation-label">
     <div class="offcanvas-header">
-        <button type="button" class="btn burger is-active"
-			data-bs-dismiss="offcanvas" aria-label="Close">
+        <button type="button" class="btn burger is-active" data-bs-dismiss="offcanvas" aria-label="Close">
             home
 
             <span class="icon"></span>
         </button>
     </div>
-    <div class="offcanvas-body"
-		data-transfer-target="contacts-transfer header-navigation">
+    <div class="offcanvas-body" data-transfer-target="contacts-transfer header-navigation">
         <nav class="nav header-nav contacts-nav" title="header nav">
-      <ul class="list-reset nav__list">
-        <li class="nav__item">
-          <a href="#" class="btn nav__link">
-            contacts
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="#" class="btn nav__link">
-            privacy policy
-          </a>
-        </li>
-        <li class="nav__item">
-          <a href="#" class="btn nav__link">
-            terms of use
-          </a>
-        </li>
-      </ul>
-    </nav>
+            <ul class="list-reset nav__list">
+                <li class="nav__item">
+                    <button type="button" class="btn nav__link"
+						data-bs-toggle="offcanvas" data-bs-target="#offcanvas-contacts" aria-controls="offcanvasContacts">
+                        contacts
+                    </button>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="btn nav__link">
+                        privacy policy
+                    </a>
+                </li>
+                <li class="nav__item">
+                    <a href="#" class="btn nav__link">
+                        terms of use
+                    </a>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>
     <div class="modal modal-video fade" id="modal-video" tabindex="-1" aria-hidden="true">
