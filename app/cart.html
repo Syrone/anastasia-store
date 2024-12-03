@@ -21,7 +21,7 @@
     Page title
 </h1>
   <div class="site-container">
-    <header class="header header--card">
+    <header class="header header--cart">
   <div class="container header-container">
     <div class="header-top">
       <div class="header-top-main">
@@ -101,211 +101,178 @@
 </header>
 
     <main class="main">
-      <div class="product">
-        <div class="product-start">
-          <div class="swiper product-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <picture>
-                  <source srcset="img/shop/shop-1.webp" type="image/webp">
-                  <img loading="lazy" src="img/shop/shop-1.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
-                </picture>
-              </div>
-              <div class="swiper-slide">
-                <picture>
-                  <source srcset="img/shop/shop-2.webp" type="image/webp">
-                  <img loading="lazy" src="img/shop/shop-2.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
-                </picture>
-              </div>
-              <div class="swiper-slide">
-                <picture>
-                  <source srcset="img/shop/shop-1.webp" type="image/webp">
-                  <img loading="lazy" src="img/shop/shop-1.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
-                </picture>
-              </div>
-              <div class="swiper-slide">
-                <picture>
-                  <source srcset="img/shop/shop-2.webp" type="image/webp">
-                  <img loading="lazy" src="img/shop/shop-2.jpg" class="product-swiper-image" width="960" height="1080" alt="Image">
-                </picture>
-              </div>
-            </div>
-          </div>
-
-          <div class="main-swiper-slide-hint">
-            <span class="icon icon-mouse">
-              <svg>
-                <use xlink:href="img/icons/mouse.svg#svg-mouse"></use>
-              </svg>
-            </span>
-
-            <span class="icon icon-down">
-              <svg>
-                <use xlink:href="img/icons/arrow-down.svg#svg-arrow-down"></use>
-              </svg>
-            </span>
-
-            <span class="icon icon-swipe">
-              <svg>
-                <use xlink:href="img/icons/swipe.svg#svg-swipe"></use>
-              </svg>
-            </span>
-          </div>
-        </div>
-        <div class="product-end">
-          <div class="product-info">
-            <div class="product-info-inner">
-              <div class="product-header">
-                <h2 class="product-title">
+      <div class="cart">
+        <div class="cart-header">
+          <picture class="cart-header-picture">
+            <source srcset="img/shop/shop-1.webp" type="image/webp">
+            <img loading="lazy" src="img/shop/shop-1.jpg" class="cart-header-image" width="100" height="132"
+              alt="Image">
+          </picture>
+          <div class="cart-header-detail">
+            <ul class="cart-header-parameters list-reset">
+              <li>
+                <h3>
                   Leggings
-                </h2>
-                <p class="product-price">
-                  $100 <span class="product-price-sale">$120</span>
+                </h3>
+              </li>
+              <li>
+                <p>
+                  sku: <span>ag001</span>
                 </p>
+              </li>
+              <li>
+                <p>
+                  size: <span>xl</span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  color: <span class="shop-card-color" style="--_color: yellow;"></span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  QTY.: <span>1</span>
+                </p>
+              </li>
+            </ul>
+
+            <ul class="cart-header-prices list-reset">
+              <li>
+                <h3>
+                  cost:
+
+                  <span>$100.00</span>
+                </h3>
+              </li>
+              <li>
+                <p>
+                  shipping: <span>$10.00</span>
+                </p>
+              </li>
+              <li>
+                <p>
+                  tax: <span>$00.00</span>
+                </p>
+              </li>
+              <li></li>
+              <li>
+                <h4>
+                  total: <span>$110.00</span>
+                </h4>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <form class="cart-main">
+          <div class="field-control">
+            <div class="fieldset">
+              <input type="email" class="field" name="email" placeholder="Email address *" required>
+            </div>
+          </div>
+
+          <div class="form-control-requireds">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="news-and-offers">
+                <span>Keep me up to date on news and exclusive offers.</span>
+              </label>
+            </div>
+
+            <p class="required">
+              * Required fields
+            </p>
+          </div>
+
+          <div class="form-fieldset-header">
+            <h3 class="form-fieldset-header-title">
+              Enter your name and shipping address:
+            </h3>
+
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox" name="news-and-offers">
+                <span>Billing address same.</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field-controls" data-has-fields="2">
+            <div class="field-control">
+              <div class="fieldset">
+                <input type="text" class="field" name="first-name" placeholder="First name *" required>
               </div>
+            </div>
 
-              <form class="product-main">
-                <div class="product-sizes">
-                  <input type="radio" class="btn-check" name="product-size" id="product-size-s" autocomplete="off" required>
-                  <label class="btn btn-inline" for="product-size-s">
-                    S
-                  </label>
-
-                  |
-
-                  <input type="radio" class="btn-check" name="product-size" id="product-size-m" autocomplete="off" required>
-                  <label class="btn btn-inline" for="product-size-m">
-                    M
-                  </label>
-
-                  |
-
-                  <input type="radio" class="btn-check" name="product-size" id="product-size-l" autocomplete="off" required>
-                  <label class="btn btn-inline" for="product-size-l">
-                    L
-                  </label>
-
-                  |
-
-                  <input type="radio" class="btn-check" name="product-size" id="product-size-xl" autocomplete="off" required>
-                  <label class="btn btn-inline" for="product-size-xl">
-                    XL
-                  </label>
-
-                  |
-
-                  <input type="radio" class="btn-check" name="product-size" id="product-size-2xl" autocomplete="off" required>
-                  <label class="btn btn-inline" for="product-size-2xl">
-                    2XL
-                  </label>
-                </div>
-
-                <div class="product-colors">
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-1" autocomplete="off" required>
-                  <label class="btn" for="product-color-1">
-                    <span class="product-color" style="--_color: black;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-2" autocomplete="off" required>
-                  <label class="btn" for="product-color-2">
-                    <span class="product-color" style="--_color: gray;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-3" autocomplete="off" required>
-                  <label class="btn" for="product-color-3">
-                    <span class="product-color" style="--_color: white;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-4" autocomplete="off" required>
-                  <label class="btn" for="product-color-4">
-                    <span class="product-color" style="--_color: orchid;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-5" autocomplete="off" required>
-                  <label class="btn" for="product-color-5">
-                    <span class="product-color" style="--_color: aqua;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-6" autocomplete="off" required>
-                  <label class="btn" for="product-color-6">
-                    <span class="product-color" style="--_color: blue;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-7" autocomplete="off" required>
-                  <label class="btn" for="product-color-7">
-                    <span class="product-color" style="--_color: green;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-8" autocomplete="off" required>
-                  <label class="btn" for="product-color-8">
-                    <span class="product-color" style="--_color: yellow;"></span>
-                  </label>
-
-                  <input type="radio" class="btn-check" name="product-color" id="product-color-9" autocomplete="off" required>
-                  <label class="btn" for="product-color-9">
-                    <span class="product-color" style="--_color: red;"></span>
-                  </label>
-                </div>
-
-                <div class="product-buttons">
-                  <button type="button" class="btn btn-base btn-secondary btn-submit">
-                    add to cart
-                  </button>
-                </div>
-              </form>
-
-              <div class="product-footer">
-                <div class="accordion accordion-flush" id="accordion-product">
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-product-one" aria-expanded="false" aria-controls="accordion-product-one">
-                        Description
-                      </button>
-                    </h2>
-                    <div id="accordion-product-one" class="accordion-collapse collapse" data-bs-parent="#accordion-product">
-                      <div class="accordion-body">
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat laudantium nisi vitae sint voluptate dolorum nostrum atque, quo quibusdam magnam ullam quasi rerum recusandae cupiditate modi consequuntur accusamus cum incidunt.
-                        </p>
-                        <p>
-                          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Repellat laudantium nisi vitae sint voluptate dolorum nostrum atque, quo quibusdam magnam ullam quasi rerum recusandae cupiditate modi consequuntur accusamus cum incidunt.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-product-two" aria-expanded="false" aria-controls="accordion-product-two">
-                        Composition and care
-                      </button>
-                    </h2>
-                    <div id="accordion-product-two" class="accordion-collapse collapse" data-bs-parent="#accordion-product">
-                      <div class="accordion-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, sunt. Optio at recusandae, natus cumque aliquid, laborum itaque ullam eum perferendis saepe omnis earum? Maxime optio sapiente harum magni laudantium.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="accordion-item">
-                    <h2 class="accordion-header">
-                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#accordion-product-three" aria-expanded="false" aria-controls="accordion-product-three">
-                        Shipping and Payment
-                      </button>
-                    </h2>
-                    <div id="accordion-product-three" class="accordion-collapse collapse" data-bs-parent="#accordion-product">
-                      <div class="accordion-body">
-                        <p>
-                          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, sunt. Optio at recusandae, natus cumque aliquid, laborum itaque ullam eum perferendis saepe omnis earum? Maxime optio sapiente harum magni laudantium.
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="field-control">
+              <div class="fieldset">
+                <input type="text" class="field" name="last-name" placeholder="Last name *" required>
               </div>
             </div>
           </div>
-        </div>
+
+          <div class="field-controls" data-has-fields="3">
+            <div class="field-control">
+              <div class="fieldset">
+                <select class="choices-js" name="country" required>
+                  <option value="">
+                    Country *
+                  </option>
+                  <option value="1">
+                    1
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="field-control">
+              <div class="fieldset">
+                <input type="text" class="field" name="city" placeholder="City *" required>
+              </div>
+            </div>
+            <div class="field-control">
+              <div class="fieldset">
+                <select class="choices-js" name="country" required>
+                  <option value="">
+                    State *
+                  </option>
+                  <option value="1">
+                    1
+                  </option>
+                  <option value="2">
+                    2
+                  </option>
+                  <option value="3">
+                    3
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field-controls" data-has-fields="3">
+            <div class="field-control" data-columns-field="2">
+              <div class="fieldset">
+                <input type="tel" class="field" name="phone" placeholder="Phone number *" required>
+              </div>
+            </div>
+            <div class="field-control">
+              <div class="fieldset">
+                <input type="text" class="field" name="zip-code" placeholder="Zip code *" inputmode="numeric" required>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-lg btn-secondary btn-submit">
+            placea order
+          </button>
+        </form>
       </div>
     </main>
     <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvas-contacts" aria-labelledby="offcanvas-contacts-label">
