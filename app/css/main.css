@@ -591,7 +591,6 @@ a {
   --_border-width: 1px;
   --_border-solid: solid;
   --_border-color: currentColor;
-  --_rounded: 1.5rem;
   --_padding: .625rem 1rem;
   --_color-hover: var(--gray-800);
   --_bg-hover: transparent;
@@ -609,7 +608,7 @@ a {
   color: var(--_color);
   background-color: var(--_bg);
   border: var(--_border-width) var(--_border-solid) var(--_border-color);
-  border-radius: var(--_rounded, 1.5rem);
+  border-radius: 1.5rem;
   padding: var(--_padding);
   outline: none;
   -webkit-transition-property: color, background, border;
@@ -3183,7 +3182,7 @@ b {
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1.25rem;
   text-transform: uppercase;
 }
 @media (min-width: 576px) {
@@ -3192,6 +3191,7 @@ b {
     -webkit-box-direction: normal;
     -ms-flex-direction: row;
     flex-direction: row;
+    gap: 1.5rem;
   }
 }
 @media (min-width: 992px) {
