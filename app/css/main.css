@@ -3358,6 +3358,15 @@ b {
   text-align: center;
   margin-top: calc(var(--header-height) + 1.5rem);
 }
+.alert-page .hero-footer {
+  position: absolute;
+  right: max(var(--container-offset), (100% - var(--content-width)) / 2);
+  bottom: var(--header-padding);
+  z-index: 1;
+}
+.alert-page .hero-footer, .alert-page .hero-footer-copy {
+  text-align: right;
+}
 .alert-page-content {
   max-width: 30rem;
   margin-inline: auto;
@@ -3400,17 +3409,14 @@ b {
 }
 @media (min-width: 992px) {
   .alert-page-btn {
+    --_width: calc(100% - 3rem);
     margin-inline: 1.5rem;
   }
 }
 
 .policy {
-  height: 100vh;
-  height: 100svh;
-  height: 100dvh;
   padding-top: calc(var(--header-height) + 1.5rem);
   padding-bottom: var(--header-padding);
-  position: relative;
 }
 .policy-title,
 .policy h3 {
@@ -3461,6 +3467,9 @@ b {
   right: max(var(--container-offset), (100% - var(--content-width)) / 2);
   bottom: var(--header-padding);
   z-index: 1;
+}
+.policy .hero-footer, .policy .hero-footer-copy {
+  text-align: right;
 }
 
 ::-webkit-scrollbar {
